@@ -35,15 +35,33 @@
     const heroContent = document.querySelector('.hero__content');
     const heroImage = document.querySelector('.hero__image-wrapper');
 
-    // ============================================
+ 
+ // ============================================
     // Navbar Scroll Behavior
     // ============================================
+    let lastScrollY = window.scrollY; // متغير جديد لتتبع اتجاه التمرير
+
     function handleNavbarScroll() {
-        if (window.scrollY > CONFIG.scrollThreshold) {
+        const currentScrollY = window.scrollY;
+
+        // إخفاء أو إظهار الشريط بناءً على اتجاه التمرير
+        if (currentScrollY > lastScrollY && currentScrollY > CONFIG.scrollThreshold) {
+            // إذا نزل المستخدم للأسفل: أخفِ الشريط (اسحبه للأعلى)
+            if (navbar) navbar.style.top = "-120px"; // يمكنك زيادة الرقم إذا كان الشريط الخاص بك أطول
+        } else {
+            // إذا صعد المستخدم للأعلى: أظهر الشريط
+            if (navbar) navbar.style.top = "0";
+        }
+
+        // الكود الأصلي الخاص بك (لإضافة لون خلفية أو ظل عند النزول)
+        if (currentScrollY > CONFIG.scrollThreshold) {
             navbar.classList.add('navbar--scrolled');
         } else {
             navbar.classList.remove('navbar--scrolled');
         }
+
+        // تحديث موضع التمرير للمرة القادمة
+        lastScrollY = currentScrollY;
     }
 
     // Throttle scroll event
