@@ -165,7 +165,7 @@ ul, ol {
 
 /* === NAVBAR === */
 .navbar {
-    position: fixed;
+    position: top;
     top: 0;
     right: 0;
     left: 0;
@@ -173,7 +173,9 @@ ul, ol {
     height: var(--navbar-height);
     display: flex;
     align-items: center;
-    background: transparent;
+    background-color: #ffffff; 
+    z-index: 1000; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
     transition: all var(--transition-base);
 }
 
