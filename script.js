@@ -39,28 +39,28 @@
  // ============================================
     // Navbar Scroll Behavior
     // ============================================
-    let lastScrollY = window.scrollY; // متغير جديد لتتبع اتجاه التمرير
+
+    let lastScrollY = window.scrollY;
 
     function handleNavbarScroll() {
         const currentScrollY = window.scrollY;
 
-        // إخفاء أو إظهار الشريط بناءً على اتجاه التمرير
+        // 1. التحكم في إخفاء وإظهار الشريط (الجديد)
         if (currentScrollY > lastScrollY && currentScrollY > CONFIG.scrollThreshold) {
-            // إذا نزل المستخدم للأسفل: أخفِ الشريط (اسحبه للأعلى)
-            if (navbar) navbar.style.top = "-120px"; // يمكنك زيادة الرقم إذا كان الشريط الخاص بك أطول
+            // إذا نزل المستخدم للأسفل: أضف كلاس الإخفاء
+            if (navbar) navbar.classList.add('navbar--hidden');
         } else {
-            // إذا صعد المستخدم للأعلى: أظهر الشريط
-            if (navbar) navbar.style.top = "0";
+            // إذا صعد للأعلى: أزل كلاس الإخفاء
+            if (navbar) navbar.classList.remove('navbar--hidden');
         }
 
-        // الكود الأصلي الخاص بك (لإضافة لون خلفية أو ظل عند النزول)
+        // 2. الكود الأصلي الخاص بك (الذي يتحكم بخلفية الشريط)
         if (currentScrollY > CONFIG.scrollThreshold) {
-            navbar.classList.add('navbar--scrolled');
+            if (navbar) navbar.classList.add('navbar--scrolled');
         } else {
-            navbar.classList.remove('navbar--scrolled');
+            if (navbar) navbar.classList.remove('navbar--scrolled');
         }
 
-        // تحديث موضع التمرير للمرة القادمة
         lastScrollY = currentScrollY;
     }
 
