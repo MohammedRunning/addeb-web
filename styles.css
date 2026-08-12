@@ -164,19 +164,16 @@ ul, ol {
 .reveal-delay-4 { transition-delay: 0.4s; }
 
 /* === NAVBAR === */
-.navbar {
-    position: top;
+
+#navbar {
+
+    position: fixed; /* أو sticky حسب تصميمك */
     top: 0;
-    right: 0;
-    left: 0;
-    z-index: 1000;
-    height: var(--navbar-height);
-    display: flex;
-    align-items: center;
-    background-color: #ffffff; 
-    z-index: 1000; 
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
-    transition: all var(--transition-base);
+    width: 100%;
+    
+ 
+    transition: top 0.4s ease-in-out, background-color 0.3s ease; 
+}
 }
 
 .navbar--scrolled {
