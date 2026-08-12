@@ -35,33 +35,15 @@
     const heroContent = document.querySelector('.hero__content');
     const heroImage = document.querySelector('.hero__image-wrapper');
 
- 
- // ============================================
+    // ============================================
     // Navbar Scroll Behavior
     // ============================================
-
-    let lastScrollY = window.scrollY;
-
     function handleNavbarScroll() {
-        const currentScrollY = window.scrollY;
-
-        // 1. التحكم في إخفاء وإظهار الشريط (الجديد)
-        if (currentScrollY > lastScrollY && currentScrollY > CONFIG.scrollThreshold) {
-            // إذا نزل المستخدم للأسفل: أضف كلاس الإخفاء
-            if (navbar) navbar.classList.add('navbar--hidden');
+        if (window.scrollY > CONFIG.scrollThreshold) {
+            navbar.classList.add('navbar--scrolled');
         } else {
-            // إذا صعد للأعلى: أزل كلاس الإخفاء
-            if (navbar) navbar.classList.remove('navbar--hidden');
+            navbar.classList.remove('navbar--scrolled');
         }
-
-        // 2. الكود الأصلي الخاص بك (الذي يتحكم بخلفية الشريط)
-        if (currentScrollY > CONFIG.scrollThreshold) {
-            if (navbar) navbar.classList.add('navbar--scrolled');
-        } else {
-            if (navbar) navbar.classList.remove('navbar--scrolled');
-        }
-
-        lastScrollY = currentScrollY;
     }
 
     // Throttle scroll event
