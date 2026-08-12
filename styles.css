@@ -179,11 +179,9 @@ ul, ol {
 
 .navbar--scrolled {
     height: var(--navbar-height-scrolled);
-    background: rgba(250, 249, 246, 0.92);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: #ffffff;
     border-bottom: 1px solid var(--color-border-light);
-    box-shadow: 0 1px 10px var(--color-shadow);
+    box-shadow: 0 4px 20px rgba(9, 30, 51, 0.08);
 }
 
 .navbar__container {
